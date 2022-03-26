@@ -11,12 +11,12 @@
     <title>3.2 Sitio Web Sencillo</title>
 </head>
 <body>
-    <div class="container-full">
+    <div class="container-fluid">
         <div id="header">
             <img src="image/logo.png" class="logo" alt="Logo de la pagina" width="120px" height="120px">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Navbar</a>
+                    <a class="navbar-brand" href="#"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -39,7 +39,10 @@
     </div>
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+        <p><b>Nombre del curso:</b> Conceptualización de servicios en la nube</p>
+        <p><b>Nombre:</b> Oscar David Hernandez Reyna</p>
+        <p><b>Codigo:</b> 211373143</p>
+        <p><b>Correo:</b> david_010@live.com.mx</p>
       </div>
     </footer>
 </body>
