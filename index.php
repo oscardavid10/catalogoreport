@@ -11,9 +11,9 @@
     <title>3.2 Sitio Web Sencillo</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container-full">
         <div id="header">
-            <img src="image/logo.png" alt="Logo de la pagina" width="200px" height="200px">
+            <img src="image/logo.png" alt="Logo de la pagina" width="120px" height="120px">
         </div>
     </div>
     <footer class="footer">
