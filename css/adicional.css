@@ -1,3 +1,3 @@
 body{
-    background-image: "../image/imagen_fondo.jpg";
+    background-image: url("../image/imagen_fondo.jpg");
 }
