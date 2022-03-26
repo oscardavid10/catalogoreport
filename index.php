@@ -40,7 +40,7 @@
         </div>
         <div class="row">
             <div id="contenido" class="container">
-                <p>Enlace a video <a href="https://www.youtube.com/watch?v=2Vv-BfVoq4g">Da clic aqui para ir a ver un video de YouTube</a></p>
+                <p>Enlace a video <a href="https://www.youtube.com/watch?v=2Vv-BfVoq4g" target="_blank">Da clic aqui para ir a ver un video de YouTube</a></p>
             </div>
         </div>
     </div>
