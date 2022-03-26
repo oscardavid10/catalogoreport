@@ -1,6 +1,6 @@
 body{
     background-image: url("../image/imagen_fondo.jpg");
-    color: white;
+    color: black;
 }
 
 #header{
@@ -21,6 +21,10 @@ body{
 
 #header.navbar{
     align-self: stretch;
+}
+
+#contenido{
+    color: white;
 }
 
 footer{

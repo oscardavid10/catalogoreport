@@ -37,9 +37,9 @@
                 </div>
             </nav>
         </div>
-
-        <p>Enlace a video <a href="https://www.youtube.com/watch?v=2Vv-BfVoq4g">Da clic aqui para ir a ver un video de YouTube</a></p>
-    
+        <div id="contenido">
+            <p>Enlace a video <a href="https://www.youtube.com/watch?v=2Vv-BfVoq4g">Da clic aqui para ir a ver un video de YouTube</a></p>
+        </div>
     </div>
     <footer class="footer">
       <div class="container">
