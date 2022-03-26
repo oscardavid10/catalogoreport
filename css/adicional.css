@@ -1,3 +1,9 @@
 body{
     background-image: url("../image/imagen_fondo.jpg");
 }
+
+#header{
+    background-color: white;
+    width: 100%;
+    height: 150px;
+}
