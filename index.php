@@ -11,7 +11,8 @@
     <title>3.2 Sitio Web Sencillo</title>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container">
+
         <div id="header">
             <img src="image/logo.png" class="logo" alt="Logo de la pagina" width="120px" height="120px">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -36,13 +37,16 @@
                 </div>
             </nav>
         </div>
+
+        <p>Enlace a video <a href="https://www.youtube.com/watch?v=2Vv-BfVoq4g">Da clic aqui para ir a ver un video de YouTube</a></p>
+    
     </div>
     <footer class="footer">
       <div class="container">
-        <p><b>Nombre del curso:</b> Conceptualización de servicios en la nube</p>
-        <p><b>Nombre:</b> Oscar David Hernandez Reyna</p>
-        <p><b>Codigo:</b> 211373143</p>
-        <p><b>Correo:</b> david_010@live.com.mx</p>
+        <p><b>Nombre del curso:</b> Conceptualización de servicios en la nube<br>
+        <b>Nombre:</b> Oscar David Hernandez Reyna<br>
+        <b>Codigo:</b> 211373143<br>
+        <b>Correo:</b> david_010@live.com.mx</p>
       </div>
     </footer>
 </body>
