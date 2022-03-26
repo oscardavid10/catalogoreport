@@ -14,18 +14,14 @@ body{
     align-items: flex-start;
 }
 
-.container-fluid{
-    margin-right: -15px;
-    margin-left: -15px;
-}
-
 #header.logo{
     align-self: stretch;
-    /* padding: 10px; */
+    padding: 10px;
 }
 
 #header.navbar{
     align-self: stretch;
+    padding-left: 10px;
 }
 
 #contenido{

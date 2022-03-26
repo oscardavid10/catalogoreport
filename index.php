@@ -12,33 +12,36 @@
 </head>
 <body>
     <div class="container-fluid">
-
-        <div id="header">
-            <img src="image/logo.png" class="logo" alt="Logo de la pagina" width="120px" height="120px">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#"></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Features</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
-                            </li>
-                        </ul>
+        <div class="row">
+            <div id="header">
+                <img src="image/logo.png" class="logo" alt="Logo de la pagina" width="120px" height="120px">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#"></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Features</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Pricing</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </div>
-        <div id="contenido">
-            <p>Enlace a video <a href="https://www.youtube.com/watch?v=2Vv-BfVoq4g">Da clic aqui para ir a ver un video de YouTube</a></p>
+        <div class="row">
+            <div id="contenido">
+                <p>Enlace a video <a href="https://www.youtube.com/watch?v=2Vv-BfVoq4g">Da clic aqui para ir a ver un video de YouTube</a></p>
+            </div>
         </div>
     </div>
     <footer class="footer">
