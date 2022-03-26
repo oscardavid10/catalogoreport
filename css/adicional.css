@@ -8,4 +8,5 @@ body{
     height: 150px;
     display: flex;
     justify-content: left;
+    align-items: center;
 }
