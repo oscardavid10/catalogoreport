@@ -42,7 +42,7 @@
         </div>
     </div>
     <footer class="footer">
-      <div class="container">
+      <div class="container-fluid">
         <p><b>Nombre del curso:</b> Conceptualización de servicios en la nube<br>
         <b>Nombre:</b> Oscar David Hernandez Reyna<br>
         <b>Codigo:</b> 211373143<br>
