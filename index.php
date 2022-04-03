@@ -40,7 +40,43 @@
         </div>
         <div class="row">
             <div id="contenido" class="container">
-                <p>Enlace a video <a href="https://www.youtube.com/watch?v=2Vv-BfVoq4g" target="_blank">Da clic aqui para ir a ver un video de YouTube</a></p>
+                <form autocomplete="off" action="" id = 'Nuevo_usuario' class="form-horizontal" onsubmit=" return false">  
+                <div class="form-inline">
+                    <div class="form-group mb-2">
+                        <label for="ejercicio_cuenta_iva">
+                            Usuario
+                        </label>
+                        <input type="text" name="usuario" id="usuario">
+                    </div>
+                </div>
+                <div class="form-inline">
+                    <div class="form-group mb-2">
+                        <label for="ejercicio_cuenta_iva">
+                            Contraseña
+                        </label>
+                        <input type="password" name="password" id="password">
+                    </div>
+                </div>
+                <div class="form-inline">
+                    <div class="form-group mb-2">
+                        <label for="ejercicio_cuenta_iva">
+                            Nombre Completo
+                        </label>
+                        <input type="text" name="nombre" id="nombre">
+                    </div>
+                </div>
+                <div class="form-inline">
+                    <div class="form-group mb-2">
+                        <label for="ejercicio_cuenta_iva">
+                            Permiso
+                        </label>
+                        <select name="permiso" id="permiso">
+                            <option value="1">Administrador</option>
+                            <option value="2">Usuario</option>
+                        </select>
+                    </div>
+                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -53,4 +89,33 @@
       </div>
     </footer>
 </body>
+
+<script>
+
+$(document).on('submit', '#Nuevo_usuario', function() {
+
+var usuario = $("#usuario").val();
+var password = $("#password").val();
+var nombre = $("#nombre").val();
+var permiso = $("#permiso").val();
+
+$.ajax({
+        url: "funciones/iva.php",
+        type: "POST",
+        data: {
+            "usuario" : ejercicio,
+            "periodo" : periodo,
+            "empresa" : empresa,
+            "tipo" : tipo
+        },
+        success: function(datas) {
+              $("#cargar_informacion_cuenta_iva").html(datas);
+            }
+        });
+
+return false;
+});
+
+</script>
 </html>
+
