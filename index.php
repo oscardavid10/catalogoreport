@@ -76,6 +76,9 @@
                         </select>
                     </div>
                 </div>
+                <div class="form-group mb-2">
+                    <input class="btn btn-primary btn-sm" type="submit" value="Agregar">
+                </div>
                 </form>
             </div>
         </div>
@@ -100,13 +103,14 @@ var nombre = $("#nombre").val();
 var permiso = $("#permiso").val();
 
 $.ajax({
-        url: "funciones/iva.php",
+        url: "funciones/AgregarUsuario.php",
         type: "POST",
         data: {
             "usuario" : ejercicio,
-            "periodo" : periodo,
-            "empresa" : empresa,
-            "tipo" : tipo
+            "password" : password,
+            "nombre" : nombre,
+            "permiso" : permiso,
+            "modo": "Alta"
         },
         success: function(datas) {
               $("#cargar_informacion_cuenta_iva").html(datas);
