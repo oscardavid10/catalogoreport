@@ -106,14 +106,14 @@ $.ajax({
         url: "funciones/AgregarUsuario.php",
         type: "POST",
         data: {
-            "usuario" : ejercicio,
+            "usuario" : usuario,
             "password" : password,
             "nombre" : nombre,
             "permiso" : permiso,
             "modo": "Alta"
         },
         success: function(datas) {
-              $("#cargar_informacion_cuenta_iva").html(datas);
+            //   $("#cargar_informacion_cuenta_iva").html(datas);
             }
         });
 
