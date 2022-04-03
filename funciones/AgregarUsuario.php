@@ -23,6 +23,8 @@ switch($modo){
         $statement->execute();
         $id_asesor = $conexion->insert_id;
 
+        echo $id_asesor;
+
 
     break;
 
