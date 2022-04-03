@@ -108,8 +108,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
       <form autocomplete="off" action="" id = 'Nuevo_usuario' class="form-horizontal" onsubmit=" return false">  
+      <div class="modal-body">
+      
           <div class="form-group">
             <label for="usuario" class="col-form-label">Usuario:</label>
             <input type="text" class="form-control" id="usuario">
@@ -124,20 +125,18 @@
           </div>
           <div class="form-group">
             <label for="permiso" class="col-form-label">Permiso:</label>
-                <select name="permiso" id="permiso">
+                <select name="permiso" class='form-control' id="permiso">
                     <option value="1">Administrador</option>
                     <option value="2">Usuario</option>
                 </select>
           </div>
-          <div class="form-group mb-2">
-                <input class="btn btn-primary btn-sm" type="submit" value="Agregar">
-            </div>
-        </form>
+        
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Agregar</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
