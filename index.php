@@ -8,9 +8,20 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/sweetalert/package/dist/sweetalert2.all.js"></script>
+    
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.flash.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.colVis.min.js"></script>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3.2 Sitio Web Sencillo</title>
+    <title>3.3 Aplicación web con base de datos</title>
 </head>
 <body>
     <div class="container-fluid">
@@ -42,6 +53,7 @@
         </div>
         <div class="row">
             <div id="contenido" class="container">
+                <br>
             <div class="card">
     <div class="card-header">
         <h5 class="card-title">Administración de Usuarios</h5>
@@ -87,11 +99,60 @@
     </footer>
 </body>
 
+<div class="modal fade" id="Modal_AgregarUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form autocomplete="off" action="" id = 'Nuevo_usuario' class="form-horizontal" onsubmit=" return false">  
+          <div class="form-group">
+            <label for="usuario" class="col-form-label">Usuario:</label>
+            <input type="text" class="form-control" id="usuario">
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-form-label">Contraseña:</label>
+            <input type="text" class="form-control" id="password">
+          </div>
+          <div class="form-group">
+            <label for="nombre" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre">
+          </div>
+          <div class="form-group">
+            <label for="permiso" class="col-form-label">Permiso:</label>
+                <select name="permiso" id="permiso">
+                    <option value="1">Administrador</option>
+                    <option value="2">Usuario</option>
+                </select>
+          </div>
+          <div class="form-group mb-2">
+                <input class="btn btn-primary btn-sm" type="submit" value="Agregar">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
 
 
 $(document).ready(function(){
     CargarUsuarios();
+});
+
+$(document).on('click', '#new_usuario', function() {
+
+$('#Modal_AgregarUsuario').modal('show');
+
 });
 
 function CargarUsuarios(){
