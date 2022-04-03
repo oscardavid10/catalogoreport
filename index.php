@@ -6,6 +6,8 @@
     <link href="css/adicional.css" rel="stylesheet">
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert/package/dist/sweetalert2.all.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3.2 Sitio Web Sencillo</title>
@@ -40,46 +42,38 @@
         </div>
         <div class="row">
             <div id="contenido" class="container">
-                <form autocomplete="off" action="" id = 'Nuevo_usuario' class="form-horizontal" onsubmit=" return false">  
-                <div class="form-inline">
-                    <div class="form-group mb-2">
-                        <label for="ejercicio_cuenta_iva">
-                            Usuario
-                        </label>
-                        <input type="text" name="usuario" id="usuario">
-                    </div>
-                </div>
-                <div class="form-inline">
-                    <div class="form-group mb-2">
-                        <label for="ejercicio_cuenta_iva">
-                            Contraseña
-                        </label>
-                        <input type="password" name="password" id="password">
-                    </div>
-                </div>
-                <div class="form-inline">
-                    <div class="form-group mb-2">
-                        <label for="ejercicio_cuenta_iva">
-                            Nombre Completo
-                        </label>
-                        <input type="text" name="nombre" id="nombre">
-                    </div>
-                </div>
-                <div class="form-inline">
-                    <div class="form-group mb-2">
-                        <label for="ejercicio_cuenta_iva">
-                            Permiso
-                        </label>
-                        <select name="permiso" id="permiso">
-                            <option value="1">Administrador</option>
-                            <option value="2">Usuario</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group mb-2">
-                    <input class="btn btn-primary btn-sm" type="submit" value="Agregar">
-                </div>
-                </form>
+            <div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Administración de Usuarios</h5>
+    </div>
+    <div class="card-body">
+    <button id="new_usuario" class="btn btn-success"><i class="fas fa-plus-circle pr-1"></i> Agregar</button><br><br>
+
+    <div id="div_tabla_usuarios" class="table-responsive">
+        <table id="tabla_usuarios" class="table row-border order-column table-sm striped table-sm" style="width: 100%; font-size:12px">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>Nombre</th>
+                    <th>Contraseña</th>
+                    <th>Permiso</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+            <tfoot>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tfoot>
+        </table>
+    </div>
+    </div>
+</div>
             </div>
         </div>
     </div>
@@ -93,7 +87,38 @@
     </footer>
 </body>
 
-<script>
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+    CargarUsuarios();
+});
+
+function CargarUsuarios(){
+
+var table = $('#tabla_usuarios').DataTable({
+    destroy: true,
+    paging:  true,
+ajax: {
+    "url": "funciones/TodosLosUsuarios.php",
+    "dataSrc": ""
+},
+columns: [
+        {"data": "id"},
+        {"data": "usuario"},
+        {"data": "nombre"},
+        {"data": "password"},
+        {"data": "permiso"},
+],
+columnDefs: [
+
+],
+    language: idioma_espanol,
+    order: [
+        [0, "desc"]
+    ]
+});
+}
 
 $(document).on('submit', '#Nuevo_usuario', function() {
 
@@ -103,7 +128,7 @@ var nombre = $("#nombre").val();
 var permiso = $("#permiso").val();
 
 $.ajax({
-        url: "funciones/AgregarUsuario.php",
+        url: "funciones/CRUD_Usuario.php",
         type: "POST",
         data: {
             "usuario" : usuario,
@@ -120,6 +145,30 @@ $.ajax({
 return false;
 });
 
+var idioma_espanol = {
+  "decimal":        "",
+  "emptyTable":     "No hay datos disponibles",
+  "info":           "Viendo _START_ a _END_ de _TOTAL_ registros",
+  "infoEmpty":      "Viendo 0 a 0 de 0 registros",
+  "infoFiltered":   "(Filtrado de _MAX_ registros totales)",
+  "infoPostFix":    "",
+  "thousands":      ",",
+  "lengthMenu":     "Ver _MENU_ registros",
+  "loadingRecords": "Cargando...",
+  "processing":     "Procensando...",
+  "search":         "Buscar:",
+  "zeroRecords":    "No se encontraron registros",
+  "paginate": {
+      "first":      "Primero",
+      "last":       "Ultimo",
+      "next":       "Siguiente",
+      "previous":   "Anterior"
+  },
+  "aria": {
+      "sortAscending":  ": activate to sort column ascending",
+      "sortDescending": ": activate to sort column descending"
+  }
+}
+
 </script>
 </html>
-
