@@ -13,10 +13,8 @@
 body{
     background-image: url("../image/imagen_fondo.jpg");
     color: black;
-    position: relative;
     margin: 0;
     padding-bottom: 6rem;
-    min-height: 100%;
 }
 
 #header{
