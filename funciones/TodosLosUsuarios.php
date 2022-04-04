@@ -19,12 +19,15 @@ $respuesta = [];
 
 while($fila = $resultados->fetch_assoc()){
 
+    $opciones = "<button type='button' class='btn btn-success btn-sm ver'><i class='fas fa-eye'></i></button><button type='button' class='btn btn-warning btn-sm editar'><i class='fas fa-edit'></i></button><button type='button' class='btn btn-danger btn-sm eliminar'><i class='fas fa-trash-alt'></i></i></button>";
+
     $info = [
         'id'		     => $fila['id'],
         'usuario'        => $fila['usuario'],
         'nombre'         => $fila['nombre'],
         'password'       => $fila['password'],
-        'permiso'        => $fila['permiso']
+        'permiso'        => $fila['permiso'],
+        'opciones'      => $opciones
     ];
     array_push($respuesta, $info);
 }

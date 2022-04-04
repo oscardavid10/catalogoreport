@@ -73,12 +73,14 @@
                     <th>Nombre</th>
                     <th>Contraseña</th>
                     <th>Permiso</th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
 
             </tbody>
             <tfoot>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -334,6 +336,7 @@ columns: [
         {"data": "nombre"},
         {"data": "password"},
         {"data": "permiso"},
+        {"data": "opciones"},
 ],
 columnDefs: [
 
