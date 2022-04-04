@@ -37,6 +37,30 @@ switch($modo){
 
     break;
 
+    case 'Consulta':
+
+        $id = $_POST['id'];
+
+        $statement = $conexion->prepare("SELECT * FROM usuarios WHERE id = ?");
+        $statement->bind_param("i",$id);
+        $statement->execute();
+        $resultados = $statement->get_result();
+
+        while($fila = $resultados->fetch_assoc()){
+       
+            $info['id'] = $fila['id'];
+            $info['usuario']      = $fila['usuario'];
+            $info['nombre']     = $fila['nombre'];
+            $info['password']      = $fila['password'];
+            $info['permiso']      = $fila['permiso'];
+            
+            // array_push($respuesta, $info);
+        }
+
+        echo json_encode($info);
+
+    break;
+
     case 'Baja':
 
         $id = $_POST['id_asesor'];

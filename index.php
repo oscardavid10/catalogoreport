@@ -145,6 +145,91 @@
   </div>
 </div>
 
+<div class="modal fade" id="Modal_VerUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form autocomplete="off" action="" id = 'Nuevo_usuario' class="form-horizontal" onsubmit=" return false">
+      <div class="modal-body">
+
+          <div class="form-group">
+            <label for="usuario" class="col-form-label">Usuario:</label>
+            <input type="text" class="form-control" id="usuario" required>
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-form-label">Contraseña:</label>
+            <input type="text" class="form-control" id="password" required>
+          </div>
+          <div class="form-group">
+            <label for="nombre" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="permiso" class="col-form-label">Permiso:</label>
+                <select name="permiso" class='form-control' id="permiso">
+                    <option value="1">Administrador</option>
+                    <option value="2">Usuario</option>
+                </select>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Modal_EditarUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form autocomplete="off" action="" id = 'Nuevo_usuario' class="form-horizontal" onsubmit=" return false">
+      <div class="modal-body">
+            <input type="hidden" name="id_usuario_editar" id="id_usuario_editar">
+          <div class="form-group">
+            <label for="usuario_edit" class="col-form-label">Usuario:</label>
+            <input type="text" class="form-control" id="usuario_edit" required>
+          </div>
+          <div class="form-group">
+            <label for="password_edit" class="col-form-label">Contraseña:</label>
+            <input type="text" class="form-control" id="password_edit" required>
+          </div>
+          <div class="form-group">
+            <label for="nombre_edit" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre_edit" required>
+          </div>
+          <div class="form-group">
+            <label for="permiso_edit" class="col-form-label">Permiso:</label>
+                <select name="permiso" class='form-control' id="permiso_edit">
+                    <option value="1">Administrador</option>
+                    <option value="2">Usuario</option>
+                </select>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Editar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
@@ -157,6 +242,81 @@ $(document).on('click', '#new_usuario', function() {
 
 $('#Modal_AgregarUsuario').modal('show');
 
+});
+
+$('#tabla_usuarios tbody').on('click', '.ver', function (){
+    var id = $(this).parents("tr").find("td:eq(0)").html();
+
+    $("#id_usuario_ver").val(id);
+
+    $.ajax({
+        url: "funciones/CRUD_Usuario.php",
+        type: "POST",
+        dataType: "JSON",
+        data: {
+            "id" : id,
+            "modo": "Consulta"
+        },
+        success: function(datas) {
+            
+            $("#usuario_ver").val(datas.usuario);
+            $("#password_ver").val(datas.password);
+            $("#nombre_ver").val(datas.nombre);
+            $("#permiso_ver").val(datas.permiso);
+
+        }
+    });
+
+    var modal = $('#Modal_VerUsuario').modal('show');
+});
+
+$('#tabla_usuarios tbody').on('click', '.eliminar', function (){
+    var id = $(this).parents("tr").find("td:eq(0)").html();
+
+    $.ajax({
+        url: "funciones/CRUD_Usuario.php",
+        type: "POST",
+        dataType: "JSON",
+        data: {
+            "id" : id,
+            "modo": "Baja"
+        },
+        success: function(datas) {
+            
+            $("#usuario_ver").val(datas.empresa);
+            $("#password_ver").val(datas.codigo);
+            $("#nombre_ver").val(datas.tipo);
+            $("#permiso_ver").val(datas.rfc);
+
+        }
+    });
+
+});
+
+$('#tabla_usuarios tbody').on('click', '.editar', function (){
+    var id = $(this).parents("tr").find("td:eq(0)").html();
+
+    $("#id_usuario_editar").val(id);
+
+    $.ajax({
+        url: "funciones/CRUD_Usuario.php",
+        type: "POST",
+        dataType: "JSON",
+        data: {
+            "id" : id,
+            "modo": "Modificar"
+        },
+        success: function(datas) {
+            
+            $("#usuario_ver").val(datas.empresa);
+            $("#password_ver").val(datas.codigo);
+            $("#nombre_ver").val(datas.tipo);
+            $("#permiso_ver").val(datas.rfc);
+
+        }
+    });
+
+    var modal = $('#Modal_EditarUsuario').modal('show');
 });
 
 function CargarUsuarios(){
