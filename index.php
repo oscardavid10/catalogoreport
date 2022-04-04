@@ -5,12 +5,12 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/adicional.css" rel="stylesheet">
     <link href="css/jquery.dataTables.min.css" rel="stylesheet"></link>
-    
+
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/sweetalert/package/dist/sweetalert2.all.js"></script>
-    
+
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.flash.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.bootstrap4.min.js"></script>
@@ -26,7 +26,8 @@
     <title>3.3 Aplicación web con base de datos</title>
 </head>
 <body>
-    <div id="contenido" class="container-fluid">
+    <div id="page-container" class="container-fluid">
+        <div id="content-wrap">
         <div class="row">
             <div id="header">
                 <img src="image/logo.png" class="logo" alt="Logo de la pagina" width="120px" height="120px">
@@ -90,6 +91,7 @@
 </div>
             </div>
         </div>
+    </div>
     <footer class="footer">
       <div class="container-fluid">
         <span><b>Nombre del curso:</b> Conceptualización de servicios en la nube<br>
@@ -110,9 +112,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form autocomplete="off" action="" id = 'Nuevo_usuario' class="form-horizontal" onsubmit=" return false">  
+      <form autocomplete="off" action="" id = 'Nuevo_usuario' class="form-horizontal" onsubmit=" return false">
       <div class="modal-body">
-      
+
           <div class="form-group">
             <label for="usuario" class="col-form-label">Usuario:</label>
             <input type="text" class="form-control" id="usuario" required>
@@ -132,7 +134,7 @@
                     <option value="2">Usuario</option>
                 </select>
           </div>
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
