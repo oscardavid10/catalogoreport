@@ -203,7 +203,7 @@
             <input type="hidden" name="id_usuario_editar" id="id_usuario_editar">
           <div class="form-group">
             <label for="usuario_edit" class="col-form-label">Usuario:</label>
-            <input type="text" class="form-control" id="usuario_edit" required>
+            <input type="text" class="form-control" id="usuario_edit" readonly>
           </div>
           <div class="form-group">
             <label for="password_edit" class="col-form-label">Contraseña:</label>
@@ -351,7 +351,6 @@ columnDefs: [
 $(document).on('submit', '#Editar_usuario', function() {
 
 var id = $("#id_usuario_editar").val();
-var usuario = $("#usuario_edit").val();
 var password = $("#password_edit").val();
 var nombre = $("#nombre_edit").val();
 var permiso = $("#permiso_edit").val();
@@ -361,7 +360,6 @@ $.ajax({
         type: "POST",
         data: {
             "id" : id,
-            "usuario" : usuario,
             "password" : password,
             "nombre" : nombre,
             "permiso" : permiso,

@@ -77,26 +77,16 @@ switch($modo){
 
         $id = $_POST['id'];
         $nombre = $_POST['nombre'];
-        $usuario = $_POST['usuario'];
         $password = $_POST['password'];
         $permiso = $_POST['permiso'];
 
-        $statement = $conexion->prepare("SELECT id FROM usuarios WHERE usuario = ?");
-        $statement->bind_param("s",$usuario);
+
+
+        $statement = $conexion->prepare("UPDATE usuarios SET password = ?, nombre = ?, permiso = ? WHERE id = ?");
+        $statement->bind_param("ssii",$password,$nombre,$permiso,$id);
         $statement->execute();
-        $resultados = $statement->get_result();
 
-        $row_cnt = $resultados->num_rows;
-        if(intval($row_cnt) > 0){
-            echo 0;
-        }else{
-
-            $statement = $conexion->prepare("UPDATE usuarios SET password = ?, nombre = ?, permiso = ? WHERE id = ?");
-            $statement->bind_param("ssii",$password,$nombre,$permiso,$id);
-            $statement->execute();
-
-            echo 1;
-        }
+        echo 1;
 
     break;
 
