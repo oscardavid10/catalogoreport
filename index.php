@@ -151,29 +151,29 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Ver Usuario</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form autocomplete="off" action="" id = 'Nuevo_usuario' class="form-horizontal" onsubmit=" return false">
+      <!-- <form autocomplete="off" action="" id = 'Nuevo_usuario' class="form-horizontal" onsubmit=" return false"> -->
       <div class="modal-body">
 
           <div class="form-group">
-            <label for="usuario" class="col-form-label">Usuario:</label>
-            <input type="text" class="form-control" id="usuario" required>
+            <label for="usuario_ver" class="col-form-label">Usuario:</label>
+            <input type="text" class="form-control" id="usuario_ver" required>
           </div>
           <div class="form-group">
-            <label for="password" class="col-form-label">Contraseña:</label>
-            <input type="text" class="form-control" id="password" required>
+            <label for="password_ver" class="col-form-label">Contraseña:</label>
+            <input type="text" class="form-control" id="password_ver" required>
           </div>
           <div class="form-group">
-            <label for="nombre" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="nombre" required>
+            <label for="nombre_ver" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre_ver" required>
           </div>
           <div class="form-group">
-            <label for="permiso" class="col-form-label">Permiso:</label>
-                <select name="permiso" class='form-control' id="permiso">
+            <label for="permiso_ver" class="col-form-label">Permiso:</label>
+                <select name="permiso_ver" class='form-control' id="permiso_ver">
                     <option value="1">Administrador</option>
                     <option value="2">Usuario</option>
                 </select>
@@ -182,9 +182,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-primary">Agregar</button>
+        <!-- <button type="submit" class="btn btn-primary">Agregar</button> -->
       </div>
-      </form>
+      <!-- </form> -->
     </div>
   </div>
 </div>
@@ -193,12 +193,12 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form autocomplete="off" action="" id = 'Nuevo_usuario' class="form-horizontal" onsubmit=" return false">
+      <form autocomplete="off" action="" id = 'Editar_usuario' class="form-horizontal" onsubmit=" return false">
       <div class="modal-body">
             <input type="hidden" name="id_usuario_editar" id="id_usuario_editar">
           <div class="form-group">
@@ -215,7 +215,7 @@
           </div>
           <div class="form-group">
             <label for="permiso_edit" class="col-form-label">Permiso:</label>
-                <select name="permiso" class='form-control' id="permiso_edit">
+                <select name="permiso_edit" class='form-control' id="permiso_edit">
                     <option value="1">Administrador</option>
                     <option value="2">Usuario</option>
                 </select>
