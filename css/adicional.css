@@ -33,10 +33,14 @@ h5{
     color: black;
 }
 
+#contenido{
+    padding-bottom: 2.5rem; 
+}
+
 footer{
     position:absolute;
     bottom:0;
     width:100%;
-    height:120px;   /* Height of the footer */
+    height:2.5rem;   /* Height of the footer */
     background:white;
 }
