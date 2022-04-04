@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/adicional.css" rel="stylesheet">
+    <link href="css/jquery.dataTables.min.css" rel="stylesheet"></link>
+    
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
