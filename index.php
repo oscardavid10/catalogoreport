@@ -306,7 +306,7 @@ $('#tabla_usuarios tbody').on('click', '.editar', function (){
         dataType: "JSON",
         data: {
             "id" : id,
-            "modo": "Modificar"
+            "modo": "Consulta"
         },
         success: function(datas) {
             
@@ -347,6 +347,52 @@ columnDefs: [
     ]
 });
 }
+
+$(document).on('submit', '#Editar_usuario', function() {
+
+var usuario = $("#usuario_edit").val();
+var password = $("#password_edit").val();
+var nombre = $("#nombre_edit").val();
+var permiso = $("#permiso_edit").val();
+
+$.ajax({
+        url: "funciones/CRUD_Usuario.php",
+        type: "POST",
+        data: {
+            "usuario" : usuario,
+            "password" : password,
+            "nombre" : nombre,
+            "permiso" : permiso,
+            "modo": "Modificar"
+        },
+        success: function(datas) {
+            if(datas>0){
+                Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'Modificar Usuario',
+                text: 'El usuario ha sido modificado !',
+                showConfirmButton: false,
+                timer: 1500
+            })
+                $('#Modal_EditarUsuario').modal('hide');
+                CargarUsuarios();
+                LimpiarCampos("#Editar_usuario");
+            }else{
+                Swal.fire({
+                position: 'top',
+                icon: 'error',
+                title: 'Error',
+                text: 'Ese usuario ya existe, intenta con otro !',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+            }
+        });
+
+return false;
+});
 
 $(document).on('submit', '#Nuevo_usuario', function() {
 
