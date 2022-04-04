@@ -91,7 +91,9 @@
             </div>
         </div>
     </div>
-    <footer class="footer">
+
+</body>
+<footer class="footer">
       <div class="container-fluid">
         <p><b>Nombre del curso:</b> Conceptualización de servicios en la nube<br>
         <b>Nombre:</b> Oscar David Hernandez Reyna<br>
@@ -99,8 +101,7 @@
         <b>Correo:</b> david_010@live.com.mx</p>
       </div>
     </footer>
-</body>
-
+    
 <div class="modal fade" id="Modal_AgregarUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
