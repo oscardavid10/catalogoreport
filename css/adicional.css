@@ -49,6 +49,9 @@ h5{
     color: black;
 }
 
+#page-container{
+    width: 94%;
+}
 
 footer{
     position: absolute;
