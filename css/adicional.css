@@ -28,6 +28,10 @@ body{
     color: black;
 }
 
+.card-title{
+    color: black;
+}
+
 footer{
     position:relative;
     bottom:0;
