@@ -112,7 +112,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close cerrar" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -141,7 +141,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-secondary cerrar" data-dismiss="modal">Cerrar</button>
         <button type="submit" class="btn btn-primary">Agregar</button>
       </div>
       </form>
@@ -154,7 +154,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Ver Usuario</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close cerrar" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -183,7 +183,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-secondary cerrar" data-dismiss="modal">Cerrar</button>
         <!-- <button type="submit" class="btn btn-primary">Agregar</button> -->
       </div>
       <!-- </form> -->
@@ -196,7 +196,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close cerrar" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -225,7 +225,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-secondary cerrar" data-dismiss="modal">Cerrar</button>
         <button type="submit" class="btn btn-primary">Editar</button>
       </div>
       </form>
@@ -273,26 +273,54 @@ $('#tabla_usuarios tbody').on('click', '.ver', function (){
     var modal = $('#Modal_VerUsuario').modal('show');
 });
 
+$(document).on('click', '.cerrar', function() {
+
+    $(".modal").modal('hide');
+
+});
+
 $('#tabla_usuarios tbody').on('click', '.eliminar', function (){
     var id = $(this).parents("tr").find("td:eq(0)").html();
 
-    $.ajax({
-        url: "funciones/CRUD_Usuario.php",
-        type: "POST",
-        dataType: "JSON",
-        data: {
-            "id" : id,
-            "modo": "Baja"
-        },
-        success: function(datas) {
-            
-            $("#usuario_ver").val(datas.empresa);
-            $("#password_ver").val(datas.codigo);
-            $("#nombre_ver").val(datas.tipo);
-            $("#permiso_ver").val(datas.rfc);
+    Swal.fire({
+            title: 'Eliminar',
+            text: "Estas seguro que deseas eliminar este usuario?",
+            icon: 'warning',
+            position: 'top',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar'
+        }).then((result) => {
+            if (result.value) {
 
-        }
-    });
+                    $.ajax({
+                        url: "funciones/CRUD_Usuario.php",
+                        type: "POST",
+                        dataType: "JSON",
+                        data: {
+                            "id" : id,
+                            "modo": "Baja"
+                        },
+                        success: function(datas) {
+                            
+                            CargarUsuarios();
+
+                        }
+                    });
+
+
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'Eliminado',
+                    text: 'Este usuario ha sido eliminado !',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        })
+
 
 });
 
