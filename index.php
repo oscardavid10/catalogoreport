@@ -350,6 +350,7 @@ columnDefs: [
 
 $(document).on('submit', '#Editar_usuario', function() {
 
+var id = $("#id_usuario_editar").val();
 var usuario = $("#usuario_edit").val();
 var password = $("#password_edit").val();
 var nombre = $("#nombre_edit").val();
@@ -359,6 +360,7 @@ $.ajax({
         url: "funciones/CRUD_Usuario.php",
         type: "POST",
         data: {
+            "id" : id,
             "usuario" : usuario,
             "password" : password,
             "nombre" : nombre,

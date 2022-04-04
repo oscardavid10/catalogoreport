@@ -77,6 +77,7 @@ switch($modo){
 
         $id = $_POST['id'];
         $nombre = $_POST['nombre'];
+        $usuario = $_POST['usuario'];
         $password = $_POST['password'];
         $permiso = $_POST['permiso'];
 
