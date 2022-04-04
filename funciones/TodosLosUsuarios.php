@@ -19,7 +19,7 @@ $respuesta = [];
 
 while($fila = $resultados->fetch_assoc()){
 
-    $opciones = "<button type='button' class='btn btn-success btn-sm ver'><i class='fas fa-eye'></i></button><button type='button' class='btn btn-warning btn-sm editar'><i class='fas fa-edit'></i></button><button type='button' class='btn btn-danger btn-sm eliminar'><i class='fas fa-trash-alt'></i></i></button>";
+    $opciones = "<button type='button' class='btn btn-success btn-sm ver'><i class='bi bi-eye-fill'></i></button><button type='button' class='btn btn-warning btn-sm editar'><i class='bi bi-pencil-square'></i></button><button type='button' class='btn btn-danger btn-sm eliminar'><i class='bi bi-trash'></i></i></button>";
 
     $info = [
         'id'		     => $fila['id'],
