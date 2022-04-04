@@ -310,10 +310,10 @@ $('#tabla_usuarios tbody').on('click', '.editar', function (){
         },
         success: function(datas) {
             
-            $("#usuario_ver").val(datas.empresa);
-            $("#password_ver").val(datas.codigo);
-            $("#nombre_ver").val(datas.tipo);
-            $("#permiso_ver").val(datas.rfc);
+            $("#usuario_edit").val(datas.empresa);
+            $("#password_edit").val(datas.codigo);
+            $("#nombre_edit").val(datas.tipo);
+            $("#permiso_edit").val(datas.rfc);
 
         }
     });
