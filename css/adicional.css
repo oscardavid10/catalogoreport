@@ -25,11 +25,10 @@ body{
 }
 
 #contenido{
-    color: white;
+    color: black;
 }
 
 footer{
-    margin-top: 20px;
     position:relative;
     bottom:0;
     width:100%;

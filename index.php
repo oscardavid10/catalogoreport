@@ -113,15 +113,15 @@
       
           <div class="form-group">
             <label for="usuario" class="col-form-label">Usuario:</label>
-            <input type="text" class="form-control" id="usuario">
+            <input type="text" class="form-control" id="usuario" required>
           </div>
           <div class="form-group">
             <label for="password" class="col-form-label">Contraseña:</label>
-            <input type="text" class="form-control" id="password">
+            <input type="text" class="form-control" id="password" required>
           </div>
           <div class="form-group">
             <label for="nombre" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="nombre">
+            <input type="text" class="form-control" id="nombre" required>
           </div>
           <div class="form-group">
             <label for="permiso" class="col-form-label">Permiso:</label>
@@ -198,12 +198,38 @@ $.ajax({
             "modo": "Alta"
         },
         success: function(datas) {
-            //   $("#cargar_informacion_cuenta_iva").html(datas);
+            if(datas>0){
+                Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'Nuevo Usuario',
+                text: 'Este usuario ha sido dado de alta !',
+                showConfirmButton: false,
+                timer: 1500
+            })
+                $('#Modal_AgregarUsuario').modal('hide');
+                CargarUsuarios();
+                LimpiarCampos("#Nuevo_usuario");
+            }else{
+                Swal.fire({
+                position: 'top',
+                icon: 'error',
+                title: 'Error',
+                text: 'Ese usuario ya existe, intenta con otro !',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
             }
         });
 
 return false;
 });
+
+function LimpiarCampos($formulario){
+
+$($formulario)[0].reset();
+}
 
 var idioma_espanol = {
   "decimal":        "",
