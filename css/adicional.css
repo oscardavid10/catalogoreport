@@ -1,6 +1,7 @@
 body{
     background-image: url("../image/imagen_fondo.jpg");
     color: black;
+    padding-bottom:200px; 
 }
 
 #header{
@@ -33,8 +34,9 @@ h5{
 }
 
 footer{
-    clear: both;
-    position: relative;
-    height: 200px;
-    margin-top: -200px;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:200px;   /* Height of the footer */
+    background:#6cf;
 }

@@ -5,7 +5,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/adicional.css" rel="stylesheet">
     <link href="css/jquery.dataTables.min.css" rel="stylesheet"></link>
-
+    
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
@@ -91,9 +91,7 @@
             </div>
         </div>
     </div>
-
-</body>
-<footer class="footer">
+    <footer class="footer">
       <div class="container-fluid">
         <p><b>Nombre del curso:</b> Conceptualización de servicios en la nube<br>
         <b>Nombre:</b> Oscar David Hernandez Reyna<br>
@@ -101,6 +99,7 @@
         <b>Correo:</b> david_010@live.com.mx</p>
       </div>
     </footer>
+</body>
 
 <div class="modal fade" id="Modal_AgregarUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
