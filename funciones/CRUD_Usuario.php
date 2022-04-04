@@ -63,7 +63,7 @@ switch($modo){
 
     case 'Baja':
 
-        $id = $_POST['id_asesor'];
+        $id = $_POST['id'];
 
         $statement = $conexion->prepare("DELETE FROM usuarios WHERE id = ?");
         $statement->bind_param("i",$id);
