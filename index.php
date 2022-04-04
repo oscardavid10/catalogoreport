@@ -26,7 +26,7 @@
     <title>3.3 Aplicación web con base de datos</title>
 </head>
 <body>
-    <div class="container-fluid">
+    <div id="contenido" class="container-fluid">
         <div class="row">
             <div id="header">
                 <img src="image/logo.png" class="logo" alt="Logo de la pagina" width="120px" height="120px">
@@ -90,10 +90,7 @@
 </div>
             </div>
         </div>
-    </div>
-
-</body>
-<footer class="footer">
+    <footer class="footer">
       <div class="container-fluid">
         <span><b>Nombre del curso:</b> Conceptualización de servicios en la nube<br>
         <b>Nombre:</b> Oscar David Hernandez Reyna<br>
@@ -101,6 +98,8 @@
         <b>Correo:</b> david_010@live.com.mx</span>
       </div>
     </footer>
+</body>
+
 
 <div class="modal fade" id="Modal_AgregarUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
