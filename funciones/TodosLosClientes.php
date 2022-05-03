@@ -9,7 +9,7 @@ $conexion->set_charset('utf8');
 
 // $id_equipo = $_POST['id_equipo'];
 
-$statement = $conexion->prepare("SELECT a.id, a.usuario, a.nombre, a.password, b.nombre AS permiso FROM usuarios a INNER JOIN permisos b ON a.permiso = b.id
+$statement = $conexion->prepare("SELECT a.id, a.nombre, a.rfc, a.telefono, b.nombre AS tipo FROM clientes a INNER JOIN tipos b ON a.tipo = b.id
 ");
 // $statement->bind_param("i",$id_equipo);
 $statement->execute();
@@ -23,10 +23,10 @@ while($fila = $resultados->fetch_assoc()){
 
     $info = [
         'id'		     => $fila['id'],
-        'usuario'        => $fila['usuario'],
-        'nombre'         => $fila['nombre'],
-        'password'       => $fila['password'],
-        'permiso'        => $fila['permiso'],
+        'nombre'        => $fila['nombre'],
+        'rfc'         => $fila['rfc'],
+        'telefono'       => $fila['telefono'],
+        'tipo'        => $fila['tipo'],
         'opciones'      => $opciones
     ];
     array_push($respuesta, $info);

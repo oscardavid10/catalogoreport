@@ -13,13 +13,13 @@ $conexion->set_charset('utf8');
 
 switch($modo){
     case 'Alta':
-        $usuario = $_POST['usuario'];
         $nombre = $_POST['nombre'];
-        $password = $_POST['password'];
-        $permiso = $_POST['permiso'];
+        $rfc = $_POST['rfc'];
+        $telefono = $_POST['telefono'];
+        $tipo = $_POST['tipo'];
 
-        $statement = $conexion->prepare("SELECT id FROM usuarios WHERE usuario = ?");
-        $statement->bind_param("s",$usuario);
+        $statement = $conexion->prepare("SELECT id FROM clientes WHERE rfc = ?");
+        $statement->bind_param("s",$rfc);
         $statement->execute();
         $resultados = $statement->get_result();
 
@@ -27,8 +27,8 @@ switch($modo){
         if(intval($row_cnt) > 0){
             echo 0;
         }else{
-            $statement = $conexion->prepare("INSERT INTO usuarios (usuario,password,nombre,permiso) VALUES (?,?,?,?)");
-            $statement->bind_param("sssi",$usuario,$password,$nombre,$permiso);
+            $statement = $conexion->prepare("INSERT INTO clientes (nombre,rfc,telefono,tipo) VALUES (?,?,?,?)");
+            $statement->bind_param("sssi",$nombre,$rfc,$telefono,$tipo);
             $statement->execute();
             $id_asesor = $conexion->insert_id;
 
@@ -41,7 +41,7 @@ switch($modo){
 
         $id = $_POST['id'];
 
-        $statement = $conexion->prepare("SELECT * FROM usuarios WHERE id = ?");
+        $statement = $conexion->prepare("SELECT * FROM clientes WHERE id = ?");
         $statement->bind_param("i",$id);
         $statement->execute();
         $resultados = $statement->get_result();
@@ -49,10 +49,10 @@ switch($modo){
         while($fila = $resultados->fetch_assoc()){
        
             $info['id'] = $fila['id'];
-            $info['usuario']      = $fila['usuario'];
-            $info['nombre']     = $fila['nombre'];
-            $info['password']      = $fila['password'];
-            $info['permiso']      = $fila['permiso'];
+            $info['nombre']      = $fila['nombre'];
+            $info['rfc']     = $fila['rfc'];
+            $info['telefono']      = $fila['telefono'];
+            $info['tipo']      = $fila['tipo'];
             
             // array_push($respuesta, $info);
         }
@@ -65,7 +65,7 @@ switch($modo){
 
         $id = $_POST['id'];
 
-        $statement = $conexion->prepare("DELETE FROM usuarios WHERE id = ?");
+        $statement = $conexion->prepare("DELETE FROM clientes WHERE id = ?");
         $statement->bind_param("i",$id);
         $statement->execute();
 
@@ -77,13 +77,13 @@ switch($modo){
 
         $id = $_POST['id'];
         $nombre = $_POST['nombre'];
-        $password = $_POST['password'];
-        $permiso = $_POST['permiso'];
+        $telefono = $_POST['telefono'];
+        $tipo = $_POST['tipo'];
 
 
 
-        $statement = $conexion->prepare("UPDATE usuarios SET password = ?, nombre = ?, permiso = ? WHERE id = ?");
-        $statement->bind_param("ssii",$password,$nombre,$permiso,$id);
+        $statement = $conexion->prepare("UPDATE clientes SET nombre = ?, telefono = ?, tipo = ? WHERE id = ?");
+        $statement->bind_param("ssii",$nombre,$telefono,$tipo,$id);
         $statement->execute();
 
         echo 1;

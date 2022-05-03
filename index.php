@@ -25,7 +25,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3.3 Aplicación web con base de datos</title>
+    <title>PI. Aplicación web dinámica en un servicio de la nube</title>
 </head>
 <body>
     <div id="page-container" class="container-fluid">
@@ -61,20 +61,20 @@
                 <br>
             <div class="card">
     <div class="card-header">
-        <h5 class="card-title">Administración de Usuarios</h5>
+        <h5 class="card-title">Administración de Clientes</h5>
     </div>
     <div class="card-body">
-    <button id="new_usuario" class="btn btn-success"><i class="fas fa-plus-circle pr-1"></i> Agregar</button><br><br>
+    <button id="new_cliente" class="btn btn-success"><i class="fas fa-plus-circle pr-1"></i> Agregar</button><br><br>
 
-    <div id="div_tabla_usuarios" class="table-responsive">
-        <table id="tabla_usuarios" class="table row-border order-column table-sm striped table-sm" style="width: 100%; font-size:12px">
+    <div id="div_tabla_clientes" class="table-responsive">
+        <table id="tabla_clientes" class="table row-border order-column table-sm striped table-sm" style="width: 100%; font-size:12px">
             <thead class="thead-dark">
                 <tr>
                     <th>ID</th>
-                    <th>Usuario</th>
                     <th>Nombre</th>
-                    <th>Contraseña</th>
-                    <th>Permiso</th>
+                    <th>RFC</th>
+                    <th>Telefono</th>
+                    <th>Tipo Cliente</th>
                     <th>Opciones</th>
                 </tr>
             </thead>
@@ -107,35 +107,35 @@
 </body>
 
 
-<div class="modal fade" id="Modal_AgregarUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="Modal_AgregarCliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo Cliente</h5>
         <button type="button" class="close cerrar" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form autocomplete="off" action="" id = 'Nuevo_usuario' class="form-horizontal" onsubmit=" return false">
+      <form autocomplete="off" action="" id = 'Nuevo_cliente' class="form-horizontal" onsubmit=" return false">
       <div class="modal-body">
 
-          <div class="form-group">
-            <label for="usuario" class="col-form-label">Usuario:</label>
-            <input type="text" class="form-control" id="usuario" required>
-          </div>
-          <div class="form-group">
-            <label for="password" class="col-form-label">Contraseña:</label>
-            <input type="text" class="form-control" id="password" required>
-          </div>
           <div class="form-group">
             <label for="nombre" class="col-form-label">Nombre:</label>
             <input type="text" class="form-control" id="nombre" required>
           </div>
           <div class="form-group">
-            <label for="permiso" class="col-form-label">Permiso:</label>
-                <select name="permiso" class='form-control' id="permiso">
-                    <option value="1">Administrador</option>
-                    <option value="2">Usuario</option>
+            <label for="rfc" class="col-form-label">RFC:</label>
+            <input type="text" class="form-control" id="rfc" maxlength="14" required>
+          </div>
+          <div class="form-group">
+            <label for="telefono" class="col-form-label">Telefono:</label>
+            <input type="text" class="form-control" id="telefono" maxlength="10" required>
+          </div>
+          <div class="form-group">
+            <label for="tipo" class="col-form-label">Tipo Cliente:</label>
+                <select name="tipo" class='form-control' id="tipo">
+                    <option value="1">Minorista</option>
+                    <option value="2">Mayorista</option>
                 </select>
           </div>
 
@@ -149,11 +149,11 @@
   </div>
 </div>
 
-<div class="modal fade" id="Modal_VerUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="Modal_VerCliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ver Usuario</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Ver Cliente</h5>
         <button type="button" class="close cerrar" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -162,22 +162,22 @@
       <div class="modal-body">
 
           <div class="form-group">
-            <label for="usuario_ver" class="col-form-label">Usuario:</label>
-            <input type="text" class="form-control" id="usuario_ver" required>
-          </div>
-          <div class="form-group">
-            <label for="password_ver" class="col-form-label">Contraseña:</label>
-            <input type="text" class="form-control" id="password_ver" required>
-          </div>
-          <div class="form-group">
             <label for="nombre_ver" class="col-form-label">Nombre:</label>
             <input type="text" class="form-control" id="nombre_ver" required>
           </div>
           <div class="form-group">
-            <label for="permiso_ver" class="col-form-label">Permiso:</label>
-                <select name="permiso_ver" class='form-control' id="permiso_ver">
-                    <option value="1">Administrador</option>
-                    <option value="2">Usuario</option>
+            <label for="rfc_ver" class="col-form-label">RFC:</label>
+            <input type="text" class="form-control" id="rfc_ver" maxlength="14" required>
+          </div>
+          <div class="form-group">
+            <label for="telefono_ver" class="col-form-label">Telefono:</label>
+            <input type="text" class="form-control" id="telefono_ver" maxlength="10" required>
+          </div>
+          <div class="form-group">
+            <label for="tipo_ver" class="col-form-label">Tipo:</label>
+                <select name="tipo_ver" class='form-control' id="tipo_ver">
+                    <option value="1">Minorista</option>
+                    <option value="2">Mayorista</option>
                 </select>
           </div>
 
@@ -191,35 +191,35 @@
   </div>
 </div>
 
-<div class="modal fade" id="Modal_EditarUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="Modal_EditarCliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Cliente</h5>
         <button type="button" class="close cerrar" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form autocomplete="off" action="" id = 'Editar_usuario' class="form-horizontal" onsubmit=" return false">
+      <form autocomplete="off" action="" id = 'Editar_cliente' class="form-horizontal" onsubmit=" return false">
       <div class="modal-body">
-            <input type="hidden" name="id_usuario_editar" id="id_usuario_editar">
-          <div class="form-group">
-            <label for="usuario_edit" class="col-form-label">Usuario:</label>
-            <input type="text" class="form-control" id="usuario_edit" readonly>
-          </div>
-          <div class="form-group">
-            <label for="password_edit" class="col-form-label">Contraseña:</label>
-            <input type="text" class="form-control" id="password_edit" required>
-          </div>
+            <input type="hidden" name="id_cliente_editar" id="id_cliente_editar">
           <div class="form-group">
             <label for="nombre_edit" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="nombre_edit" required>
+            <input type="text" class="form-control" id="nombre_edit" readonly>
           </div>
           <div class="form-group">
-            <label for="permiso_edit" class="col-form-label">Permiso:</label>
-                <select name="permiso_edit" class='form-control' id="permiso_edit">
-                    <option value="1">Administrador</option>
-                    <option value="2">Usuario</option>
+            <label for="rfc_edit" class="col-form-label">RFC:</label>
+            <input type="text" class="form-control" id="rfc_edit" maxlength="14" required disabled>
+          </div>
+          <div class="form-group">
+            <label for="telefono_edit" class="col-form-label">Telefono:</label>
+            <input type="text" class="form-control" id="telefono_edit" maxlength="10" required>
+          </div>
+          <div class="form-group">
+            <label for="tipo_edit" class="col-form-label">Tipo:</label>
+                <select name="tipo_edit" class='form-control' id="tipo_edit">
+                    <option value="1">Minorista</option>
+                    <option value="2">Mayorista</option>
                 </select>
           </div>
 
@@ -238,22 +238,22 @@
 
 
 $(document).ready(function(){
-    CargarUsuarios();
+  CargarClientes();
 });
 
-$(document).on('click', '#new_usuario', function() {
+$(document).on('click', '#new_cliente', function() {
 
-$('#Modal_AgregarUsuario').modal('show');
+$('#Modal_AgregarCliente').modal('show');
 
 });
 
-$('#tabla_usuarios tbody').on('click', '.ver', function (){
+$('#tabla_clientes tbody').on('click', '.ver', function (){
     var id = $(this).parents("tr").find("td:eq(0)").html();
 
-    $("#id_usuario_ver").val(id);
+    $("#id_cliente_ver").val(id);
 
     $.ajax({
-        url: "funciones/CRUD_Usuario.php",
+        url: "funciones/CRUD_Cliente.php",
         type: "POST",
         dataType: "JSON",
         data: {
@@ -262,15 +262,15 @@ $('#tabla_usuarios tbody').on('click', '.ver', function (){
         },
         success: function(datas) {
             
-            $("#usuario_ver").val(datas.usuario);
-            $("#password_ver").val(datas.password);
             $("#nombre_ver").val(datas.nombre);
-            $("#permiso_ver").val(datas.permiso);
+            $("#rfc_ver").val(datas.rfc);
+            $("#telefono_ver").val(datas.telefono);
+            $("#tipo_ver").val(datas.tipo);
 
         }
     });
 
-    var modal = $('#Modal_VerUsuario').modal('show');
+    var modal = $('#Modal_VerCliente').modal('show');
 });
 
 $(document).on('click', '.cerrar', function() {
@@ -279,12 +279,12 @@ $(document).on('click', '.cerrar', function() {
 
 });
 
-$('#tabla_usuarios tbody').on('click', '.eliminar', function (){
+$('#tabla_clientes tbody').on('click', '.eliminar', function (){
     var id = $(this).parents("tr").find("td:eq(0)").html();
 
     Swal.fire({
             title: 'Eliminar',
-            text: "Estas seguro que deseas eliminar este usuario?",
+            text: "Estas seguro que deseas eliminar este cliente?",
             icon: 'warning',
             position: 'top',
             showCancelButton: true,
@@ -295,7 +295,7 @@ $('#tabla_usuarios tbody').on('click', '.eliminar', function (){
             if (result.value) {
 
                     $.ajax({
-                        url: "funciones/CRUD_Usuario.php",
+                        url: "funciones/CRUD_Cliente.php",
                         type: "POST",
                         dataType: "JSON",
                         data: {
@@ -304,7 +304,7 @@ $('#tabla_usuarios tbody').on('click', '.eliminar', function (){
                         },
                         success: function(datas) {
                             
-                            CargarUsuarios();
+                          CargarClientes();
 
                         }
                     });
@@ -314,7 +314,7 @@ $('#tabla_usuarios tbody').on('click', '.eliminar', function (){
                     position: 'top',
                     icon: 'success',
                     title: 'Eliminado',
-                    text: 'Este usuario ha sido eliminado !',
+                    text: 'Este cliente ha sido eliminado !',
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -324,13 +324,13 @@ $('#tabla_usuarios tbody').on('click', '.eliminar', function (){
 
 });
 
-$('#tabla_usuarios tbody').on('click', '.editar', function (){
+$('#tabla_clientes tbody').on('click', '.editar', function (){
     var id = $(this).parents("tr").find("td:eq(0)").html();
 
-    $("#id_usuario_editar").val(id);
+    $("#id_cliente_editar").val(id);
 
     $.ajax({
-        url: "funciones/CRUD_Usuario.php",
+        url: "funciones/CRUD_Cliente.php",
         type: "POST",
         dataType: "JSON",
         data: {
@@ -339,32 +339,32 @@ $('#tabla_usuarios tbody').on('click', '.editar', function (){
         },
         success: function(datas) {
             
-            $("#usuario_edit").val(datas.usuario);
-            $("#password_edit").val(datas.password);
             $("#nombre_edit").val(datas.nombre);
-            $("#permiso_edit").val(datas.permiso);
+            $("#rfc_edit").val(datas.rfc);
+            $("#telefono_edit").val(datas.telefono);
+            $("#tipo_edit").val(datas.tipo);
 
         }
     });
 
-    var modal = $('#Modal_EditarUsuario').modal('show');
+    var modal = $('#Modal_EditarCliente').modal('show');
 });
 
-function CargarUsuarios(){
+function CargarClientes(){
 
-var table = $('#tabla_usuarios').DataTable({
+var table = $('#tabla_clientes').DataTable({
     destroy: true,
     paging:  true,
 ajax: {
-    "url": "funciones/TodosLosUsuarios.php",
+    "url": "funciones/TodosLosClientes.php",
     "dataSrc": ""
 },
 columns: [
         {"data": "id"},
-        {"data": "usuario"},
         {"data": "nombre"},
-        {"data": "password"},
-        {"data": "permiso"},
+        {"data": "rfc"},
+        {"data": "telefono"},
+        {"data": "tipo"},
         {"data": "opciones"},
 ],
 columnDefs: [
@@ -377,21 +377,21 @@ columnDefs: [
 });
 }
 
-$(document).on('submit', '#Editar_usuario', function() {
+$(document).on('submit', '#Editar_cliente', function() {
 
-var id = $("#id_usuario_editar").val();
-var password = $("#password_edit").val();
+var id = $("#id_cliente_editar").val();
 var nombre = $("#nombre_edit").val();
-var permiso = $("#permiso_edit").val();
+var telefono = $("#telefono_edit").val();
+var tipo = $("#tipo_edit").val();
 
 $.ajax({
-        url: "funciones/CRUD_Usuario.php",
+        url: "funciones/CRUD_Cliente.php",
         type: "POST",
         data: {
             "id" : id,
-            "password" : password,
             "nombre" : nombre,
-            "permiso" : permiso,
+            "rfc" : rfc,
+            "telefono" : telefono,
             "modo": "Modificar"
         },
         success: function(datas) {
@@ -399,20 +399,20 @@ $.ajax({
                 Swal.fire({
                 position: 'top',
                 icon: 'success',
-                title: 'Modificar Usuario',
-                text: 'El usuario ha sido modificado !',
+                title: 'Modificar Cliente',
+                text: 'El cliente ha sido modificado !',
                 showConfirmButton: false,
                 timer: 1500
             })
-                $('#Modal_EditarUsuario').modal('hide');
-                CargarUsuarios();
-                LimpiarCampos("#Editar_usuario");
+                $('#Modal_EditarCliente').modal('hide');
+                CargarUClientes();
+                LimpiarCampos("#Editar_cliente");
             }else{
                 Swal.fire({
                 position: 'top',
                 icon: 'error',
                 title: 'Error',
-                text: 'Ese usuario ya existe, intenta con otro !',
+                text: 'Ese cliente ya existe, intenta con otro !',
                 showConfirmButton: false,
                 timer: 1500
             })
@@ -423,21 +423,21 @@ $.ajax({
 return false;
 });
 
-$(document).on('submit', '#Nuevo_usuario', function() {
+$(document).on('submit', '#Nuevo_cliente', function() {
 
-var usuario = $("#usuario").val();
-var password = $("#password").val();
 var nombre = $("#nombre").val();
-var permiso = $("#permiso").val();
+var rfc = $("#rfc").val();
+var telefono = $("#telefono").val();
+var tipo = $("#tipo").val();
 
 $.ajax({
-        url: "funciones/CRUD_Usuario.php",
+        url: "funciones/CRUD_Cliente.php",
         type: "POST",
         data: {
-            "usuario" : usuario,
-            "password" : password,
             "nombre" : nombre,
-            "permiso" : permiso,
+            "rfc" : rfc,
+            "telefono" : telefono,
+            "tipo" : tipo,
             "modo": "Alta"
         },
         success: function(datas) {
@@ -445,20 +445,20 @@ $.ajax({
                 Swal.fire({
                 position: 'top',
                 icon: 'success',
-                title: 'Nuevo Usuario',
-                text: 'Este usuario ha sido dado de alta !',
+                title: 'Nuevo Cliente',
+                text: 'Este cliente ha sido dado de alta !',
                 showConfirmButton: false,
                 timer: 1500
             })
-                $('#Modal_AgregarUsuario').modal('hide');
-                CargarUsuarios();
-                LimpiarCampos("#Nuevo_usuario");
+                $('#Modal_AgregarCliente').modal('hide');
+                CargarClientes();
+                LimpiarCampos("#Nuevo_cliente");
             }else{
                 Swal.fire({
                 position: 'top',
                 icon: 'error',
                 title: 'Error',
-                text: 'Ese usuario ya existe, intenta con otro !',
+                text: 'Ese cliente ya existe, intenta con otro !',
                 showConfirmButton: false,
                 timer: 1500
             })
