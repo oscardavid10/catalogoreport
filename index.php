@@ -61,7 +61,7 @@
                 <br>
             <div class="card">
     <div class="card-header">
-        <h5 class="card-title">Administración de Clientes 2</h5>
+        <h5 class="card-title">Administración de Clientes</h5>
     </div>
     <div class="card-body">
     <button id="new_cliente" class="btn btn-success"><i class="fas fa-plus-circle pr-1"></i> Agregar</button><br><br>
@@ -405,7 +405,7 @@ $.ajax({
                 timer: 1500
             })
                 $('#Modal_EditarCliente').modal('hide');
-                CargarUClientes();
+                CargarClientes();
                 LimpiarCampos("#Editar_cliente");
             }else{
                 Swal.fire({
