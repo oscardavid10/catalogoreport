@@ -84,9 +84,10 @@
             </tfoot>
         </table>
     </div>
-    <h2>Como se utiliza esta aplicación</h2>
-      <video width="640" height="4480" controls>
-    <source src="Como se utiliza.mp4" type="video/mkv">
+    <br>
+    <h3>Como se utiliza esta aplicación</h3>
+      <video width="640" height="480" controls>
+    <source src="Como se utiliza.mp4" type="video/mp4">
   Tu navegador no soporte este video
   </video>
     </div>
