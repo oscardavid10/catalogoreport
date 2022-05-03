@@ -87,7 +87,7 @@
     <br>
     <h3>Como se utiliza esta aplicación</h3>
       <video width="640" height="480" controls>
-    <source src="Como se utiliza.mp4" type="video/mp4">
+    <source src="image/Como se utiliza.mp4" type="video/mp4">
   Tu navegador no soporte este video
   </video>
     </div>
