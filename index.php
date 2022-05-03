@@ -84,6 +84,11 @@
             </tfoot>
         </table>
     </div>
+    <h2>Como se utiliza esta aplicación</h2>
+      <video width="640" height="4480" controls>
+    <source src="Como se utiliza.mp4" type="video/mkv">
+  Tu navegador no soporte este video
+  </video>
     </div>
 </div>
             </div>
@@ -254,7 +259,7 @@ $('#tabla_clientes tbody').on('click', '.ver', function (){
             "modo": "Consulta"
         },
         success: function(datas) {
-            
+
             $("#nombre_ver").val(datas.nombre);
             $("#rfc_ver").val(datas.rfc);
             $("#telefono_ver").val(datas.telefono);
@@ -296,7 +301,7 @@ $('#tabla_clientes tbody').on('click', '.eliminar', function (){
                             "modo": "Baja"
                         },
                         success: function(datas) {
-                            
+
                           CargarClientes();
 
                         }
@@ -331,7 +336,7 @@ $('#tabla_clientes tbody').on('click', '.editar', function (){
             "modo": "Consulta"
         },
         success: function(datas) {
-            
+
             $("#nombre_edit").val(datas.nombre);
             $("#rfc_edit").val(datas.rfc);
             $("#telefono_edit").val(datas.telefono);
