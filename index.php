@@ -61,7 +61,7 @@
                 <br>
             <div class="card">
     <div class="card-header">
-        <h5 class="card-title">Administración de Clientes</h5>
+        <h5 class="card-title">Administración de Clientes 2</h5>
     </div>
     <div class="card-body">
     <button id="new_cliente" class="btn btn-success"><i class="fas fa-plus-circle pr-1"></i> Agregar</button><br><br>
@@ -390,8 +390,8 @@ $.ajax({
         data: {
             "id" : id,
             "nombre" : nombre,
-            "rfc" : rfc,
             "telefono" : telefono,
+            "tipo" : tipo,
             "modo": "Modificar"
         },
         success: function(datas) {
